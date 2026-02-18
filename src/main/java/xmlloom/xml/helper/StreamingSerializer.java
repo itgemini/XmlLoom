@@ -13,6 +13,7 @@ import javax.xml.stream.events.StartElement;
 import xmlloom.xml.annotation.XMLAttribute;
 import xmlloom.xml.annotation.XMLElement;
 import xmlloom.xml.annotation.XMLRoot;
+import xmlloom.xml.annotation.XMLValue;
 
 
 /**
@@ -47,6 +48,15 @@ public class StreamingSerializer {
 
     private void serializeObject(Object object, String overrideName) throws XMLStreamException {
         if (object == null) return;
+
+        if (isPrimitiveOrWrapper(object.getClass())) {
+            if (overrideName != null) {
+                writeSimpleElement(overrideName, object.toString());
+            } else {
+                eventWriter.add(eventFactory.createCharacters(object.toString()));
+            }
+            return;
+        }
 
         Class<?> clazz = object.getClass();
         String tagName = overrideName;
@@ -83,8 +93,39 @@ public class StreamingSerializer {
             }
         }
 
+        // Direct value (text content) via @XMLValue
+        boolean hasXMLValue = false;
+        for (Field field : clazz.getDeclaredFields()) {
+            XMLValue valueAnno = field.getAnnotation(XMLValue.class);
+            if (valueAnno != null) {
+                field.setAccessible(true);
+                try {
+                    Object val = field.get(object);
+                    if (val != null) {
+                        if (val instanceof Collection<?> collection) {
+                            if (!hasXMLValue && formatted) {
+                                eventWriter.add(eventFactory.createCharacters("\n"));
+                            }
+                            hasXMLValue = true;
+                            for (Object item : collection) {
+                                serializeObject(item, valueAnno.name());
+                                if (formatted) eventWriter.add(eventFactory.createCharacters("\n"));
+                            }
+                        } else {
+                            // Write the direct text content of the current element
+                            eventWriter.add(eventFactory.createCharacters(val.toString()));
+                        }
+                    }
+                } catch (IllegalAccessException e) {
+                    throw new XMLStreamException("Error accessing field " + field.getName(), e);
+                }
+                // Only one @XMLValue is supported per class; ignore additional ones if present
+                break;
+            }
+        }
+
         // Elements
-        boolean hasChildElements = false;
+        boolean hasChildElements = hasXMLValue;
         for (Field field : clazz.getDeclaredFields()) {
             XMLElement elemAnno = field.getAnnotation(XMLElement.class);
             if (elemAnno != null) {
