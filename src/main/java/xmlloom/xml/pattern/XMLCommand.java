@@ -1,6 +1,7 @@
-package com.datashepherd.xml.pattern;
+package xmlloom.xml.pattern;
 
-import com.datashepherd.xml.exception.XMLAPIException;
+
+import xmlloom.xml.exception.XMLAPIException;
 
 /**
  * Command interface representing an operation in the XML API.

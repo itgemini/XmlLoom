@@ -1,4 +1,4 @@
-package com.datashepherd.xml.exception;
+package xmlloom.xml.exception;
 
 public enum IssueKey {
     XML_PARSING_ERROR,

@@ -1,11 +1,9 @@
-package com.datashepherd.xml.helper;
+package xmlloom.xml.helper;
 
-import java.io.OutputStream;
-import java.io.Writer;
-import com.datashepherd.xml.exception.XMLAPIException;
-import com.datashepherd.xml.pattern.StaxWritingStrategy;
-import com.datashepherd.xml.pattern.XMLCommandInvoker;
-import com.datashepherd.xml.pattern.XMLWritingStrategy;
+import xmlloom.xml.exception.XMLAPIException;
+import xmlloom.xml.pattern.StaxWritingStrategy;
+import xmlloom.xml.pattern.XMLCommandInvoker;
+import xmlloom.xml.pattern.XMLWritingStrategy;
 
 /**
  * Facade class providing a simplified API for XML writing operations.

@@ -1,4 +1,4 @@
-package com.datashepherd.xml.helper;
+package xmlloom.xml.helper;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -28,23 +28,24 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
+import xmlloom.xml.annotation.XMLAttribute;
+import xmlloom.xml.annotation.XMLElement;
+import xmlloom.xml.annotation.XMLRoot;
+import xmlloom.xml.annotation.XMLValue;
+import xmlloom.xml.exception.Issue;
+import xmlloom.xml.exception.XMLAPIException;
+import xmlloom.xml.exception.XMLIssueReport;
+import xmlloom.xml.pattern.XMLObjectFactory;
+
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import com.datashepherd.xml.annotation.XMLAttribute;
-import com.datashepherd.xml.annotation.XMLElement;
-import com.datashepherd.xml.annotation.XMLRoot;
-import com.datashepherd.xml.annotation.XMLValue;
-import com.datashepherd.xml.exception.Issue;
-import com.datashepherd.xml.exception.XMLAPIException;
-import com.datashepherd.xml.exception.XMLIssueReport;
-import com.datashepherd.xml.pattern.XMLObjectFactory;
 
-import static com.datashepherd.xml.exception.IssueKey.ATTRIBUTES_ERROR;
-import static com.datashepherd.xml.exception.IssueKey.FIELD;
-import static com.datashepherd.xml.exception.IssueKey.MISSING_ATTRIBUTES;
-import static com.datashepherd.xml.exception.IssueKey.ROOT_OBJECT;
-import static com.datashepherd.xml.exception.IssueKey.VALUE;
-import static com.datashepherd.xml.exception.IssueKey.XML_PARSING_ERROR;
+import static xmlloom.xml.exception.IssueKey.ATTRIBUTES_ERROR;
+import static xmlloom.xml.exception.IssueKey.FIELD;
+import static xmlloom.xml.exception.IssueKey.MISSING_ATTRIBUTES;
+import static xmlloom.xml.exception.IssueKey.ROOT_OBJECT;
+import static xmlloom.xml.exception.IssueKey.VALUE;
+import static xmlloom.xml.exception.IssueKey.XML_PARSING_ERROR;
 
 public class ConcurrentProcessor<T> {
 

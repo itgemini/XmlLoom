@@ -1,6 +1,6 @@
-package com.datashepherd.xml.pattern;
+package xmlloom.xml.pattern;
 
-import com.datashepherd.xml.exception.XMLAPIException;
+import xmlloom.xml.exception.XMLAPIException;
 
 /**
  * Factory class to create instances of annotated XML classes using reflection.

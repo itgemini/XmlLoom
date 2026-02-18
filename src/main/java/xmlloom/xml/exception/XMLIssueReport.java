@@ -1,4 +1,4 @@
-package com.datashepherd.xml.exception;
+package xmlloom.xml.exception;
 
 import java.util.ArrayList;
 import java.util.List;

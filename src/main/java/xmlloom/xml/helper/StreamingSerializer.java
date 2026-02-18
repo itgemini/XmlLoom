@@ -1,20 +1,19 @@
-package com.datashepherd.xml.helper;
+package xmlloom.xml.helper;
 
 import java.lang.reflect.Field;
 import java.util.Collection;
-import java.util.Optional;
+import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventFactory;
 import javax.xml.stream.XMLEventWriter;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.Attribute;
-import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.EndElement;
-import javax.xml.stream.events.Characters;
-import javax.xml.namespace.QName;
+import javax.xml.stream.events.StartElement;
 
-import com.datashepherd.xml.annotation.XMLAttribute;
-import com.datashepherd.xml.annotation.XMLElement;
-import com.datashepherd.xml.annotation.XMLRoot;
+import xmlloom.xml.annotation.XMLAttribute;
+import xmlloom.xml.annotation.XMLElement;
+import xmlloom.xml.annotation.XMLRoot;
+
 
 /**
  * Serializer that converts Java objects to XML using StAX.

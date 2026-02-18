@@ -1,11 +1,11 @@
-package com.datashepherd.xml.pattern;
+package xmlloom.xml.pattern;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
-import com.datashepherd.xml.exception.XMLAPIException;
-import com.datashepherd.xml.exception.XMLIssueReport;
+import xmlloom.xml.exception.XMLAPIException;
+import xmlloom.xml.exception.XMLIssueReport;
 
 /**
  * Strategy interface for XML parsing.

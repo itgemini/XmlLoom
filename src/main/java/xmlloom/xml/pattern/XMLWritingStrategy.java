@@ -1,8 +1,9 @@
-package com.datashepherd.xml.pattern;
+package xmlloom.xml.pattern;
 
 import java.io.OutputStream;
 import java.io.Writer;
-import com.datashepherd.xml.exception.XMLAPIException;
+
+import xmlloom.xml.exception.XMLAPIException;
 
 /**
  * Strategy interface for XML writing.

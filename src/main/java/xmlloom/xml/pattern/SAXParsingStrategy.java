@@ -1,4 +1,4 @@
-package com.datashepherd.xml.pattern;
+package xmlloom.xml.pattern;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,9 +7,10 @@ import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 
-import com.datashepherd.xml.exception.XMLAPIException;
-import com.datashepherd.xml.exception.XMLIssueReport;
-import com.datashepherd.xml.helper.ConcurrentProcessor;
+import xmlloom.xml.exception.XMLAPIException;
+import xmlloom.xml.exception.XMLIssueReport;
+import xmlloom.xml.helper.ConcurrentProcessor;
+
 
 /**
  * Concrete implementation of XMLParsingStrategy using SAXParser.

@@ -1,4 +1,4 @@
-package com.datashepherd.xml.pattern;
+package xmlloom.xml.pattern;
 
 import java.io.OutputStream;
 import java.io.Writer;
@@ -6,8 +6,9 @@ import javax.xml.stream.XMLEventWriter;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 
-import com.datashepherd.xml.exception.XMLAPIException;
-import com.datashepherd.xml.helper.StreamingSerializer;
+import xmlloom.xml.exception.XMLAPIException;
+import xmlloom.xml.helper.StreamingSerializer;
+
 
 /**
  * Concrete implementation of XMLWritingStrategy using StAX.
